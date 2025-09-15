@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript Concepts</title>
+    </head>
+</html>
+<body>
+    <script>
+
+//Program: Student Score Analyzer
+
+// Function expression to convert score to number (type conversion)
+const convertToNumber = function(scoreStr) {
+  return Number(scoreStr);
+};
+
+// Array of student data (key-value pairs using objects)
+let students = [
+  { name: "Alice", score: "85" },
+  { name: "Bob", score: "74" },
+  { name: "Clara", score: "91" },
+  { name: "David", score: "67" }
+];
+
+// Use array method: map to convert scores to numbers
+students = students.map(student => {
+  student.score = convertToNumber(student.score);
+  return student;
+});
+
+// Function to check if student passed using logical operators
+function hasPassed(score) {
+  return score >= 70 && score <= 100;
+}
+
+// While loop to print passing students
+let i = 0;
+console.log("Students who passed:");
+while (i < students.length) {
+  if (hasPassed(students[i].score)) {
+    console.log(`students[i].name -{students[i].score}`);
+  }
+  i++;
+}
+
+// For loop to list all students using Object.entries
+console.log("\n📋 All Students:");
+for (let student of students) {
+  for (let [key, value] of Object.entries(student)) {
+    console.log(`key:{value}`);
+  }
+  console.log("---");
+}
+    </script>
+ </body>   
